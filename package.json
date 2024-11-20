@@ -1,0 +1,23 @@
+{
+    "name": "NouRax",
+    "version": "1.0.0",
+    "description": "a discord bot",
+    "main": "dist/index.js",
+    "scripts": {
+        "start": "node dist/index.js",
+        "dev": "nodemon dist/index.js"
+    },
+    "dependencies": {
+        "aoi.js": "^6.9.0",
+        "aoi.lavalink": "github:tyowk/aoi.lavalink#main",
+        "aoi.mysql": "^3.6.0",
+        "chalk": "^4.1.2",
+        "dotenv": "^16.4.5"
+    },
+    "files": [
+        "dist",
+        ".env",
+        "env.example",
+        "package.json"
+    ]
+}
