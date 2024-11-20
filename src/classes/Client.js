@@ -1,6 +1,6 @@
 const { AoiClient, LoadCommands } = require('aoi.js');
-const { Database } = require('aoi.mysql');
-const { MusicClient } = require('aoi.lavalink');
+const { Database } = require('aoijs.mysql');
+const { MusicClient } = require('aoijs.lavalink');
 const { ClientVariables } = require('./Variables.js');
 const { ClientStatuses } = require('./Statuses.js');
 
