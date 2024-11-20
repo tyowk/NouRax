@@ -6,7 +6,7 @@ const client = new DiscordClient({
     prefix: Config.prefix,
     production: Config.production,
     debug: Config.debug,
-    dir: 'dist/commands',
+    dir: 'src/commands',
     intents: [
         'Guilds',
         'GuildMessages',

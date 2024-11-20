@@ -2,7 +2,7 @@ const { ClientShard } = require('aoi.js');
 const { Config } = require('./config.js');
 const { blue, cyan } = require('chalk');
 
-const sharder = new ClientShard('dist/client.js', {
+const sharder = new ClientShard('src/client.js', {
     token: Config.token,
     totalShards: 'auto'
 });

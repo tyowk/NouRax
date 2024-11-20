@@ -1,11 +1,11 @@
 {
     "name": "NouRax",
     "version": "1.0.0",
-    "description": "a discord bot",
-    "main": "dist/index.js",
+    "description": "a simple discord bot built with aoi.js",
+    "main": "src/index.js",
     "scripts": {
-        "start": "node dist/index.js",
-        "dev": "nodemon dist/index.js"
+        "start": "node src/index.js",
+        "dev": "nodemon src/index.js"
     },
     "dependencies": {
         "aoi.js": "^6.9.0",
@@ -15,9 +15,9 @@
         "dotenv": "^16.4.5"
     },
     "files": [
-        "dist",
-        ".env",
-        "env.example",
+        "src",
+        "README.md",
+        "LICENSE",
         "package.json"
     ]
 }
