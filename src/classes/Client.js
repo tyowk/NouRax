@@ -3,6 +3,7 @@ const { Database } = require('aoijs.mysql');
 const { MusicClient } = require('aoijs.lavalink');
 const { ClientVariables } = require('./Variables.js');
 const { ClientStatuses } = require('./Statuses.js');
+const { ClientEvents } = require('./Events.js');
 
 exports.DiscordClient = class Client extends AoiClient {
     constructor(options = {}) {
@@ -18,6 +19,10 @@ exports.DiscordClient = class Client extends AoiClient {
         options.events = options.events || [];
         options.suppressAllErrors = options.production ? true : false;
         options.debug = options.debug ? true : false;
+        options.allowedMentions = {
+            parse: ['users', 'roles'],
+            repliedUser: false
+        };
         
         super(options);
         new Database(this, options.mysql);
@@ -26,6 +31,7 @@ exports.DiscordClient = class Client extends AoiClient {
         this.config = require('../config.js').Config;
         new ClientVariables(this);
         new ClientStatuses(this);
+        new ClientEvents(this);
         this.cmd = Object.assign(this.music.cmds, this.cmd);
         this.loadCommands(options.dir, options.debug);
     }
