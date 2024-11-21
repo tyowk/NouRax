@@ -28,5 +28,12 @@ const client = new DiscordClient({
         searchEngine: Config.music.searchEngine,
         maxQueueSize: Config.music.maxQueueSize,
         maxPlaylistSize: Config.music.maxPlaylistSize
+    },
+    aoiWarning: Config.debug,
+    aoiLogs: Config.debug,
+    respondOnEdit: {
+        commands: true,
+        time: 20000,
+        nonPrefixed: true,
     }
 });

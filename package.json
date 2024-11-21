@@ -9,7 +9,6 @@
     },
     "dependencies": {
         "aoi.js": "^6.9.0",
-        "aoi.lavalink": "github:tyowk/aoi.lavalink#main",
         "aoijs.lavalink": "github:tyowk/aoijs.lavalink#main",
         "aoijs.mysql": "github:tyowk/aoijs.mysql#main",
         "chalk": "^4.1.2",

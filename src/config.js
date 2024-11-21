@@ -2,7 +2,7 @@ require('dotenv').config();
 
 exports.Config = {
     token: process.env.TOKEN,
-    prefix: [process.env.PREFIX, '<@$clientId>', '$getGuildVar[prefix]'],
+    prefix: [process.env.PREFIX, 'rax', '<@$clientId>', '$getGuildVar[prefix]'],
     production: parse(process.env.PRODUCTION),
     debug: parse(process.env.DEBUG),
     
