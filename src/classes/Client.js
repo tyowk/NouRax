@@ -32,7 +32,8 @@ exports.DiscordClient = class Client extends AoiClient {
         new ClientVariables(this);
         new ClientStatuses(this);
         new ClientEvents(this);
-        this.cmd = Object.assign(this.music.cmds, this.cmd);
+        Object.assign(this.cmd, this.music?.cmd);
+        Object.entries(this.music?.cmd).forEach(cmd => this.cmd?.types?.push(cmd[0]));
         this.loadCommands(options.dir, options.debug);
     }
 }

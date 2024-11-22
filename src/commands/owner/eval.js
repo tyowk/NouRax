@@ -6,4 +6,7 @@ module.exports = [{
     name: 'djs',
     aliases: ['de'],
     code: `$djsEval[$message;true]`
+}, {
+    name: 'exec',
+    code: `$exec[$message]`
 }]
