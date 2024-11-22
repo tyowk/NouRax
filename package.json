@@ -3,10 +3,6 @@
     "version": "1.0.0",
     "description": "a simple discord bot built with aoi.js",
     "main": "src/index.js",
-    "scripts": {
-        "start": "node src/index.js",
-        "dev": "nodemon src/index.js"
-    },
     "dependencies": {
         "aoi.js": "^6.9.0",
         "aoijs.lavalink": "github:tyowk/aoijs.lavalink#main",
