@@ -1,0 +1,21 @@
+name: Bug Report
+description: Report us the issue.
+title: 'Bug: '
+labels: 'bug'
+body:
+    - type: textarea
+      id: code
+      attributes:
+          label: BUGS
+          render: markdown
+          placeholder: There is a bugs at...
+      validations:
+          required: true
+    - type: textarea
+      id: logs
+      attributes:
+          label: Relevant log output
+          description: Please copy and paste any relevant log output.
+          render: shell
+      validations:
+          required: false
