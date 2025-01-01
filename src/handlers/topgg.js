@@ -1,7 +1,7 @@
 const { Manager } = require('topgg.utils');
 const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, ButtonStyle } = require('discord.js');
 
-module.exports = (client, config) => {
+exports.TopggClient = (client, config) => {
     client.topgg = new Manager({
         token: config.topgg.token,
         webhook: {

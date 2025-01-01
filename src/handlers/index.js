@@ -1,25 +1,23 @@
-//const variables = require('./variables.js');
-const functions = require('./functions.js');
-const statuses = require('./statuses.js');
-const Topgg = require('./topgg.js');
+const { TopggClient } = require('./topgg.js');
 const { REST, Routes, Collection } = require('discord.js');
-const { Client } = require('genius-lyrics');
+const { Client: GeniusClient } = require('genius-lyrics');
 const fs = require('node:fs');
 const path = require('node:path');
 
 exports.Handlers = (client, config) => {
     client.config = config;
     client.os = require('os');
-    //client.variables(variables);
-    client.lyrics = new Client(process.env.GENIUS_API);
+    client.lyrics = new GeniusClient(config.geniusApi);
     client.timeout = new Collection();
-    statuses.forEach(x => client.status(x));
-    functions.forEach(x => client.functionManager.createFunction(x));
+    client.status(...require('./statuses.js'));
+    client.functionManager.createFunction(...require('./functions.js'));
     client.on('interactionCreate', interaction => require('./interaction.js')(interaction, client));
-    Topgg(client, config);
+    TopggClient(client, config);
     client.body = [];
     loadCommands(client);
     registerCommands(client);
+
+    // client.variables((require('./variables.js'));
 };
 
 function loadCommands(client, basePath = path.join(process.cwd(), 'src/commands/client')) {

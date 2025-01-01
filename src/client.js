@@ -1,16 +1,16 @@
 const { AoiClient } = require('aoi.js');
 const { Manager } = require('aoijs.lavalink');
-//const { Database } = require('aoijs.mysql');
 const { Handlers } = require('./handlers');
 const { ClusterClient, getInfo } = require('discord-hybrid-sharding');
 const config = require('./config');
+// const { Database } = require('aoijs.mysql');
 
 const client = new AoiClient({
     token: config.token,
     prefix: [
         config.prefix,
-        //'$getGuildVar[prefix]',
         '<@$clientId>',
+        // '$getGuildVar[prefix]',
     ],
     intents: ['Guilds', 'GuildMessages', 'GuildVoiceStates', 'DirectMessages', 'MessageContent'],
     events: ['onMessage', 'onInteractionCreate', 'onVoiceStateUpdate', 'onGuildJoin', 'onGuildLeave'],
@@ -25,11 +25,13 @@ const client = new AoiClient({
     shardCount: getInfo().TOTAL_SHARDS,
 });
 
-/*new Database(client, {
+/*
+new Database(client, {
     url: config.database,
     tables: ['main'],
     debug: config.debug,
-});*/
+});
+*/
 
 new Manager(client, {
     nodes: config.nodes,

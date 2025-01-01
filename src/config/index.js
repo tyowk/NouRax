@@ -7,12 +7,15 @@ module.exports = {
     database: process.env.DATABASE,
     debug: process.env.DEBUG === 'true' ? true : false,
     port: Number(process.env.PORT),
+    geniusApi: process.env.GENIUS_API,
     nodes: require('./nodes.js'),
     emojis: require('./emojis.js'),
+
     topgg: {
         token: process.env.TOPGG_TOKEN,
         auth: process.env.TOPGG_AUTH,
     },
+
     logs: {
         ready: '1238488401729163454',
         nodes: '1318500565290057738',
