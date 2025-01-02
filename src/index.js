@@ -1,17 +1,24 @@
 const { ClusterManager } = require('discord-hybrid-sharding');
 const { token, debug } = require('./config');
-const { blue, cyan } = require('chalk');
+const { blue, cyan, green } = require('chalk');
 
 const manager = new ClusterManager(`${__dirname}/client.js`, {
-    totalShards: 'auto',
-    shardsPerClusters: 2,
+    totalShards: 1,
+    shardsPerClusters: 1,
     mode: 'process',
     token,
 });
 
 manager.on('clusterCreate', cluster => {
-    if (!debug) return;
-    console.log(`[${blue('DEBUG')}] :: Launched Cluster ${cyan(cluster.id)}`);
+    console.log(`[${green('INFO')}] :: Cluster ${cyan(cluster.id)} launched`);
 });
 
-manager.spawn({ timeout: -1 });
+if (debug) {
+    manager.on('debug', info => {
+        console.log(`[${blue('DEBUG')}] :: ${info}`);
+    });
+}
+
+manager.spawn({ timeout: -1 }).catch(err => {
+    console.error(`[${red('ERROR')}] :: Cluster manager failed to spawn: `, err);
+});

@@ -609,28 +609,6 @@ $onlyIf[$voiceId[$authorId]!=;{newEmbed:{description:$nonEscape[$getEmoji[no]]  
             };
         },
     },
-    /*
-    {
-        name: '$getDefaultVar',
-        type: 'djs',
-        code: d => {
-            const data = d.util.aoiFunc(d);
-            if (data.err) return d.error(data.err);
-            let [varname, table = d.client.db.tables[0]] = data.inside.splits;
-            varname = varname?.addBrackets();
-            table = table?.addBrackets();
-
-            if (!varname) return d.client.returnCode(d, data);
-            if (!d.client?.variableManager?.has(varname, table))
-                return d.aoiError.fnError(d, 'custom', {}, `Variable "${varname}" not found`);
-
-            data.result = d.client?.variableManager?.get(varname, table)?.default;
-            return {
-                code: d.util.setCode(data),
-            };
-        },
-    },
-    */
 ];
 
 function textChunks(text, maxLength = 1024) {

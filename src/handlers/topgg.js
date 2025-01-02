@@ -2,6 +2,7 @@ const { Manager } = require('topgg.utils');
 const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, ButtonStyle } = require('discord.js');
 
 exports.TopggClient = (client, config) => {
+    if (client.cluster.id !== 0) return;
     client.topgg = new Manager({
         token: config.topgg.token,
         webhook: {
