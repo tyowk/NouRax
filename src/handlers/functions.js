@@ -500,10 +500,16 @@ $onlyIf[$voiceId[$authorId]!=;{newEmbed:{description:$nonEscape[$getEmoji[no]]  
         code: async d => {
             const data = d.util.aoiFunc(d);
             if (data.err) return d.error(data.err);
-            const title = data.inside.splits;
+            let title = data.inside.splits;
             if (!title?.length) return d.client.returnCode(d, data);
+            const property = title?.length > 1 ? title.pop() : 'lyrics';
+            title = title?.join(';');
 
-            data.result = await d.client.lyrics(title?.join(';')).then(x => x?.lyrics);
+            const result =
+                d.data.lyrics && d.data.lyrics?.query === title ? d.data.lyrics : await d.client.lyrics(title);
+            d.data.lyrics = result;
+
+            data.result = result?.[property];
 
             return {
                 code: d.util.setCode(data),
@@ -551,7 +557,7 @@ $onlyIf[$voiceId[$authorId]!=;{newEmbed:{description:$nonEscape[$getEmoji[no]]  
             if (data.err) return d.client.returnCode(d, data);
 
             let text = data.inside.splits;
-            let chunkSize = Number(text.pop());
+            let chunkSize = text?.length > 1 ? Number(text.pop()) : '1024';
             text = text?.join(';')?.addBrackets();
 
             if (!text) return d.client.returnCode(d, data);

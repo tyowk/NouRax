@@ -29,6 +29,7 @@ exports.GetLyrics = async song => {
     if (!lyrics?.[0]) return;
 
     return {
+        query: song,
         title,
         artist: artist[1]?.text(),
         lyrics: lyrics[0]?.text(),

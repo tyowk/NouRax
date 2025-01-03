@@ -24,19 +24,18 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$title[Lyrics for **"$songInfo[title]"**]
+$title[**$lyrics[$songInfo[title];title] by $lyrics[$songInfo[title];artist]**]
 $description[>>> $chunkedText[1]]
 $color[#4367FE]
-$thumbnail[$songInfo[artworkUrl]]
-$onlyIf[$chunkedLength>0;{newEmbed:{description:$nonEscape[$getEmoji[no]]  No results found}{color:Red}}{ephemeral}{deleteIn:5s}]
-$textChunk[$lyrics[$songInfo[title] by $songInfo[artist]];4000]
+$onlyIf[$chunkedLength>=1;{newEmbed:{description:$nonEscape[$getEmoji[no]]  No results found}{color:Red}}{ephemeral}{deleteIn:5s}]
+$textChunk[$lyrics[$songInfo[title]];3996]
 $endif
 $else
-$title[Lyrics for **"$getContext[search;all]"**]
+$title[**$lyrics[$getContext[search;all];title] by $lyrics[$getContext[search;all];artist]**]
 $description[>>> $chunkedText[1]]
 $color[#4367FE]
-$onlyIf[$chunkedLength>0;{newEmbed:{description:$nonEscape[$getEmoji[no]]  No results found}{color:Red}}{ephemeral}{deleteIn:5s}]
-$textChunk[$lyrics[$getContext[search;all]];4000]
+$onlyIf[$chunkedLength>=1;{newEmbed:{description:$nonEscape[$getEmoji[no]]  No results found}{color:Red}}{ephemeral}{deleteIn:5s}]
+$textChunk[$lyrics[$getContext[search;all]];3996]
 $endif
 $checkPerms`,
     },
