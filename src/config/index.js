@@ -4,10 +4,8 @@ module.exports = {
     token: process.env.TOKEN,
     clientId: process.env.CLIENT_ID,
     prefix: process.env.PREFIX,
-    database: process.env.DATABASE,
     debug: process.env.DEBUG === 'true' ? true : false,
     port: Number(process.env.PORT),
-    geniusApi: process.env.GENIUS_API,
     nodes: require('./nodes.js'),
     emojis: require('./emojis.js'),
 
