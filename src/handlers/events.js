@@ -1,4 +1,4 @@
-const { green } = require('chalk');
+const { green, cyan } = require('chalk');
 
 exports.ClientEvents = (client, config) => {
     client.on('ready', () => {
@@ -12,8 +12,8 @@ exports.ClientEvents = (client, config) => {
 ██║░░██║██║░░██║██╔╝╚██╗
 ╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝
 • Status:     ${green('Ready!')}
-• Shard(s):   ${client.cluster.id}
-• Cluster(s): ${client.cluster.count}
+• Shard(s):   ${cyan(client.cluster.id)}
+• Cluster(s): ${cyan(client.cluster.count)}
         `);
         console.log(' ');
     });

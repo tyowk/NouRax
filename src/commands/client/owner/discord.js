@@ -1,11 +1,12 @@
 module.exports = [
     {
-        name: 'eval',
+        name: 'djseval',
+        aliases: 'djs',
         code: `
 $description[\`\`\`js
 $textSlice[$replaceText[$if[$get[EVALED]==;null;$get[EVALED]];#SEMI#;];0;3992]\`\`\`]
 $color[Orange]
-$let[EVALED;$eval[$message;true;true;true;true]]
+$let[EVALED;$djseval[$message;true]]
 $onlyIf[$checkClientOwnerIds==true;]`,
     },
 ];

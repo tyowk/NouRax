@@ -1,11 +1,11 @@
 module.exports = [
     {
-        name: 'eval',
+        name: 'exec',
         code: `
 $description[\`\`\`js
 $textSlice[$replaceText[$if[$get[EVALED]==;null;$get[EVALED]];#SEMI#;];0;3992]\`\`\`]
 $color[Orange]
-$let[EVALED;$eval[$message;true;true;true;true]]
+$let[EVALED;$exec[$message]]
 $onlyIf[$checkClientOwnerIds==true;]`,
     },
 ];

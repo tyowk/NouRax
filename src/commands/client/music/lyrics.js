@@ -8,7 +8,7 @@ module.exports = [
                 description: 'The song title',
                 type: 3,
                 required: false,
-            }
+            },
         ],
         $if: 'old',
         code: `

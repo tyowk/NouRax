@@ -3,6 +3,7 @@ const { EmbedBuilder, ButtonBuilder, ActionRowBuilder, ButtonStyle } = require('
 
 exports.TopggClient = (client, config) => {
     if (client.cluster.id !== 0) return;
+
     client.topgg = new Manager({
         token: config.topgg.token,
         webhook: {

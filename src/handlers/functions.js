@@ -504,7 +504,7 @@ $onlyIf[$voiceId[$authorId]!=;{newEmbed:{description:$nonEscape[$getEmoji[no]]  
             if (!title?.length) return d.client.returnCode(d, data);
 
             data.result = await d.client.lyrics(title?.join(';')).then(x => x?.lyrics);
-            
+
             return {
                 code: d.util.setCode(data),
             };

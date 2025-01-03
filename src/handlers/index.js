@@ -13,6 +13,7 @@ exports.Handlers = (client, config) => {
     client.status(...require('./statuses.js'));
     client.functionManager.createFunction(...require('./functions.js'));
     client.on('interactionCreate', interaction => require('./interaction.js')(interaction, client));
+
     TopggClient(client, config);
     ClientEvents(client, config);
     client.body = [];
@@ -22,27 +23,32 @@ exports.Handlers = (client, config) => {
 
 function loadCommands(client, basePath = join(process.cwd(), 'src/commands/client')) {
     const files = readdirSync(basePath);
-    for (const file of files) {
-        if (file === 'owner' || file === 'events') continue;
+
+    files.forEach(file => {
+        if (file === 'owner' || file === 'events') return;
+
         const filePath = join(basePath, file);
+
         if (statSync(filePath).isDirectory()) {
             loadCommands(client, filePath);
         } else {
             let cmd = require(filePath);
             if (Array.isArray(cmd)) cmd = cmd[0];
-            if (cmd.type || !cmd.name || !cmd.description) continue;
+            if (cmd.type || !cmd.name || !cmd.description) return;
+
             client.body.push({
                 name: cmd.name,
-                description: cmd.description || 'No description provide',
+                description: cmd.description || 'No description provided',
                 type: 1,
                 options: cmd.options || [],
             });
         }
-    }
+    });
 }
 
 function registerCommands(client) {
     const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
+
     rest.put(Routes.applicationCommands(process.env.CLIENT_ID), {
         body: client.body,
     });
