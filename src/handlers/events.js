@@ -10,7 +10,7 @@ exports.ClientEvents = (client, config) => {
 ██████╔╝███████║░╚███╔╝░
 ██╔══██╗██╔══██║░██╔██╗░
 ██║░░██║██║░░██║██╔╝╚██╗
-╚═╝░░╚═╝╚═╝░░╚═╝╚═l╝░░╚═╝
+╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝
 • Status:     ${green('Ready!')}
 • Shard(s):   ${client.cluster.id}
 • Cluster(s): ${client.cluster.count}

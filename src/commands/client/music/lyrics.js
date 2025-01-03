@@ -8,7 +8,7 @@ module.exports = [
                 description: 'The song title',
                 type: 3,
                 required: false,
-            },
+            }
         ],
         $if: 'old',
         code: `
@@ -29,7 +29,7 @@ $description[>>> $chunkedText[1]]
 $color[#4367FE]
 $thumbnail[$songInfo[artworkUrl]]
 $onlyIf[$chunkedLength>0;{newEmbed:{description:$nonEscape[$getEmoji[no]]  No results found}{color:Red}}{ephemeral}{deleteIn:5s}]
-$textChunk[$lyrics[$songInfo[title] - $songInfo[artist]];4000]
+$textChunk[$lyrics[$songInfo[title] by $songInfo[artist]];4000]
 $endif
 $else
 $title[Lyrics for **"$getContext[search;all]"**]

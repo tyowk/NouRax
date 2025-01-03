@@ -503,7 +503,8 @@ $onlyIf[$voiceId[$authorId]!=;{newEmbed:{description:$nonEscape[$getEmoji[no]]  
             const title = data.inside.splits;
             if (!title?.length) return d.client.returnCode(d, data);
 
-            data.result = await d.client.lyrics?.songs?.search(title?.join(';')).then(x => x[0]?.lyrics());
+            data.result = await d.client.lyrics(title?.join(';')).then(x => x?.lyrics);
+            
             return {
                 code: d.util.setCode(data),
             };

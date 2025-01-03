@@ -1,15 +1,15 @@
 const { REST, Routes, Collection } = require('discord.js');
 const { TopggClient } = require('./topgg.js');
 const { ClientEvents } = require('./events.js');
-const { Client: Genius } = require('genius-lyrics');
+const { GetLyrics } = require('./lyrics.js');
 const { readdirSync, statSync } = require('node:fs');
 const { join } = require('node:path');
 
 exports.Handlers = (client, config) => {
     client.config = config;
     client.os = require('os');
-    client.lyrics = new Genius(config.geniusApi);
     client.timeout = new Collection();
+    client.lyrics = GetLyrics;
     client.status(...require('./statuses.js'));
     client.functionManager.createFunction(...require('./functions.js'));
     client.on('interactionCreate', interaction => require('./interaction.js')(interaction, client));
