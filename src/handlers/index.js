@@ -4,8 +4,10 @@ const { ClientEvents } = require('./events.js');
 const { GetLyrics } = require('./lyrics.js');
 const { readdirSync, statSync } = require('node:fs');
 const { join } = require('node:path');
+const { red } = require('chalk');
 
 exports.Handlers = (client, config) => {
+    loadAntiCrash(config);
     client.config = config;
     client.os = require('os');
     client.timeout = new Collection();
@@ -20,6 +22,17 @@ exports.Handlers = (client, config) => {
     loadCommands(client);
     registerCommands(client);
 };
+
+function loadAntiCrash(config) {
+    if (config.debug) return;
+    process.on('unhandledRejection', (reason, promise) => {
+        console.error(`[${red('ERROR')}] :: Unhandled Rejection at:`, promise, `reason:`, reason);
+    });
+
+    process.on('uncaughtException', err => {
+        console.error(`[${red('ERROR')}] :: Uncaught Exception:`, err);
+    });
+}
 
 function loadCommands(client, basePath = join(process.cwd(), 'src/commands/client')) {
     const files = readdirSync(basePath);
