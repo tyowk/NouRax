@@ -21,7 +21,7 @@ $addField[Client Statistics;>>> - \`Cluster(s)  ::\`  ➜  **$numberSeparator[$d
 - \`User(s)     ::\`  ➜  **$numberSeparator[$allMembersCount]**]
 $addField[Client Information;>>> - \`Username    ::\`  ➜  **$username[$clientId]**
 - \`User ID     ::\`  ➜  **$clientId**
-- \`Version     ::\`  ➜  **v1.0.0**
+- \`Version     ::\`  ➜  **v1.5.0**
 - \`Uptime      ::\`  ➜  **$uptime**
 - \`API Latency ::\`  ➜  **$pingms**
 - \`Bot Latency ::\`  ➜  **$replaceText[$messageping$interactionPing;NaN;]ms**
