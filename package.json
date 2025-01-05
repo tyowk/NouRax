@@ -23,7 +23,7 @@
         "dotenv": "^16.4.7",
         "encoding": "^0.1.13",
         "node-fetch": "^2.6.1",
-        "topgg.utils": "^5.0.0"
+        "topgg.utils": "^5.1.0"
     },
     "devDependencies": {
         "prettier": "3.4.2"
