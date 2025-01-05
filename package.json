@@ -17,7 +17,6 @@
     "dependencies": {
         "aoi.js": "^6.9.0",
         "aoijs.lavalink": "^4.0.0",
-        "aoijs.mysql": "^4.0.0",
         "cheerio": "^1.0.0",
         "discord-hybrid-sharding": "^2.2.3",
         "dotenv": "^16.4.7",
