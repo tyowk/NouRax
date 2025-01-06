@@ -31,7 +31,7 @@ new Manager(client, {
     reconnectTries: 200,
 });
 
-client.cluster = new ClusterClient(client);
+client.shard = new ClusterClient(client);
 Handlers(client, config);
 client.loadCommands('src/commands/client', config.debug);
 client.loadVoiceEvents('src/commands/player', config.debug);
