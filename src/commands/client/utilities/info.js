@@ -13,8 +13,8 @@ $addField[System Information;>>> - \`Platform    ::\`  ➜  **$toLocaleUpperCase
 - \`CPU Usage   ::\`  ➜  **$djseval[client.os.loadavg()[0];true]%**
 - \`RAM Usage   ::\`  ➜  **$prettyBytes[$djseval[client.os.totalmem() - client.os.freemem();true]]**
 - \`Total RAM   ::\`  ➜  **$prettyBytes[$djseval[client.os.totalmem();true]]**]
-$addField[Client Statistics;>>> - \`Cluster(s)  ::\`  ➜  **$numberSeparator[$djseval[client.cluster?.count;true]]**
-- \`Shard(s)    ::\`  ➜  **$numberSeparator[$djseval[client.cluster?.shardList?.length;true]]**
+$addField[Client Statistics;>>> - \`Cluster(s)  ::\`  ➜  **$numberSeparator[$djseval[client.shard?.count;true]]**
+- \`Shard(s)    ::\`  ➜  **$numberSeparator[$djseval[client.shard?.shardList?.length;true]]**
 - \`Player(s)   ::\`  ➜  **$numberSeparator[$djseval[client.shoukaku.players.size;true]]**
 - \`Server(s)   ::\`  ➜  **$guildCount**
 - \`Channel(s)  ::\`  ➜  **$numberSeparator[$allChannelsCount]**
