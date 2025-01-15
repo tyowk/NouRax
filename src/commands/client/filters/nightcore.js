@@ -14,7 +14,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  Nightcore filter applied]
+$description[$getEmoji[sparkles]  Nightcore filter applied]
 $color[#4367FE]
 $setFilter[nightcore]
 $endif

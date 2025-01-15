@@ -28,8 +28,8 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$removeSong[$getContext[song;1]]
-$description[$getEmoji[yes]  Removed [$songInfo[title;$getContext[song;1]]]($songInfo[url;$getContext[song;1]]) from the queue]
+$removeTrack[$getContext[song;1]]
+$description[$getEmoji[remove]  Removed [$songInfo[title;$getContext[song;1]]]($songInfo[url;$getContext[song;1]]) from the queue]
 $color[#4367FE]
 $endif
 $checkVoice

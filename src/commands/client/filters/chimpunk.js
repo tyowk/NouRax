@@ -14,7 +14,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  Chimpunk filter applied]
+$description[$getEmoji[sparkles]  Chimpunk filter applied]
 $color[#4367FE]
 $setFilter[chimpunk]
 $endif

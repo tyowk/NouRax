@@ -1,4 +1,6 @@
 const { green, cyan } = require('chalk');
+/*const { Campaign } = require('patreon-discord');
+const { PatreonLoop } = require('./patreon.js');*/
 
 class NouRax extends Error {
     constructor(data) {
@@ -13,7 +15,14 @@ class NouRax extends Error {
 }
 
 exports.ClientEvents = (client, config) => {
-    client.on('ready', () => {
+    client.on('ready', async () => {
+        /*client.patreon = new Campaign({
+            patreonToken: config.patreon.token,
+            campaignId: config.patreon.campaign,
+        });
+
+        await PatreonLoop(client, client.db);*/
+
         if (config.debug) return;
         console.log(' ');
         console.log(`

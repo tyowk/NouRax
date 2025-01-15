@@ -15,7 +15,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  Cleared the filter]
+$description[$getEmoji[sparkles]  Cleared the filter]
 $color[#4367FE]
 $setFilter[clear]
 $endif

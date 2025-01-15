@@ -14,7 +14,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  Tremolo filter applied]
+$description[$getEmoji[sparkles]  Tremolo filter applied]
 $color[#4367FE]
 $setFilter[tremolo]
 $endif

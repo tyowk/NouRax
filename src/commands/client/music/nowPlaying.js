@@ -15,12 +15,14 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$replaceNowPlaying[$songInfo[sourceName]]  **Now playing [$songInfo[title]]($songInfo[url])**]
+$description[$replaceEmoji[$songInfo[sourceName]]  **Now playing [$songInfo[title]]($songInfo[url])**
+$getEmoji[blank]
+$getEmoji[bdot] **Artist:**  $songInfo[artist]
+$getEmoji[bdot] **Duration:**  $currentTrackDuration[true] / $songInfo[duration]
+$getEmoji[bdot] **Requester:**  $songInfo[requester.mention]]
 $thumbnail[$songInfo[thumbnail]]
-$addField[Requested by;$songInfo[requester.username] ($songInfo[requester.mention])]
-$addField[Duration;$humanizeMs[$currentTrackDuration] / $songInfo[duration]]
-$addField[Artist;$songInfo[artist]]
 $color[#4367FE]
+$addButton[1;Search Song;link;$nonEscape[$songInfo[url]];false;$replaceEmoji[$songInfo[platform]]]
 $endif
 $checkPerms`,
 };

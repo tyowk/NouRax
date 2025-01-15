@@ -20,7 +20,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  The track has been resumed]
+$description[$getEmoji[play]  The track has been resumed]
 $color[#4367FE]
 $resumeTrack
 $endif

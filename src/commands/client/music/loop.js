@@ -16,16 +16,16 @@ $deleteIn[5s]
 $endelseif
 $else
 $if[$loopStatus==off]
-$description[$getEmoji[yes]  Set the loop mode to **\`SONG\`**]
+$description[$getEmoji[loop]  Set the loop mode to **\`SONG\`**]
 $color[#4367FE]
-$loopMode[repeat]
-$elseif[$loopStatus==repeat]
-$description[$getEmoji[yes]  Set the loop mode to **\`QUEUE\`**]
+$loopMode[song]
+$elseif[$loopStatus==song]
+$description[$getEmoji[loop]  Set the loop mode to **\`QUEUE\`**]
 $color[#4367FE]
 $loopMode[queue]
 $endelseif
 $else
-$description[$getEmoji[yes]  Disabled loop mode]
+$description[$getEmoji[loop]  Loop mode has been disabled]
 $color[Red]
 $loopMode[off]
 $endif

@@ -5,15 +5,15 @@ module.exports = [
         $if: 'old',
         code: `
 $if[$authorId!=$clientId]
-$if[$playerEmpty==true&&$voiceId[$authorId]!=&&$voiceMemberCount[$voiceId[$clientId]]!=1]
+$if[$voiceEmpty==true&&$voiceId[$authorId]!=&&$voiceMemberCount[$voiceId[$clientId]]!=1]
 $if[$playerStatus==paused]
-$playerEmpty[false]
+$voiceEmpty[false]
 $resumeTrack
 $endif
-$elseif[$playerEmpty==false&&$voiceId[$authorId]==&&$voiceMemberCount[$voiceId[$clientId]]==1]
+$elseif[$voiceEmpty==false&&$voiceId[$authorId]==&&$voiceMemberCount[$voiceId[$clientId]]==1]
 $awaitExecute[handleStates]
 $if[$playerStatus!=paused]
-$playerEmpty[true]
+$voiceEmpty[true]
 $pauseTrack
 $endif
 $endelseif
@@ -31,6 +31,7 @@ $let[ID;$playerChannelId]
 $onlyIf[$voiceId[$clientId]==&&$hasPlayer==true;]
 $endif
 $onlyIf[$oldState[mute]==$newState[mute]||$oldState[deaf]==$newState[deaf]&&$isBot==false;]
+$suppressErrors
 `,
     },
     {
@@ -48,6 +49,7 @@ $destroyPlayer
 $deleteNowPlaying
 $let[ID;$playerChannelId]
 $onlyif[$hasPlayer==true&&$voiceMemberCount[$voiceId[$clientid]]==1;]
-$wait[1m]`,
+$wait[1m]
+$suppressErrors`,
     },
 ];

@@ -14,13 +14,13 @@ $description[$getEmoji[no]  There are no track currently playing!]
 $color[Red]
 $deleteIn[5s]
 $endelseif
-$elseif[$isPreviousExist!=true]
+$elseif[$isPreviousExists!=true]
 $description[$getEmoji[no]  There are no previous track!]
 $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  Playing the previous track]
+$description[$getEmoji[previous]  Playing the previous track]
 $color[#4367FE]
 $previousTrack
 $endif

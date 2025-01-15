@@ -19,7 +19,7 @@ $description[$getEmoji[no]  I already joined to <#$voiceId[$clientId]>!]
 $color[Red]
 $deleteIn[5s]
 $else
-$description[$getEmoji[yes]  Joined to <#$voiceId[$clientId]>]
+$description[$getEmoji[volumeup]  Joined to <#$voiceId[$clientId]>]
 $color[#4367FE]
 $joinvc[$getContext[channel;false]]
 $endif

@@ -14,7 +14,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  Double time filter applied]
+$description[$getEmoji[sparkles]  Double time filter applied]
 $color[#4367FE]
 $setFilter[doubletime]
 $endif

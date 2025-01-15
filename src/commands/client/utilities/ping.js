@@ -6,18 +6,18 @@ module.exports = {
     code: `
 $isInteraction
 $if[$hasPlayer==true]
-$addField[Player;\`\`\`js
-$playerPingms
+$addField[$getEmoji[bdot] Player;\`\`\`js
+* $playerPingms
 \`\`\`;true]
 $endif
-$addField[Database;\`\`\`js
-unknown
+$addField[$getEmoji[bdot] Database;\`\`\`js
+* $databasePingms
 \`\`\`;true]
-$addField[Bot Latency;\`\`\`js
-$replaceText[$messageping$interactionPing;NaN;]ms
+$addField[$getEmoji[bdot] Bot Latency;\`\`\`js
+* $replaceText[$messageping$interactionPing;NaN;]ms
 \`\`\`;true]
-$addField[API Latency;\`\`\`js
-$pingms
+$addField[$getEmoji[bdot] API Latency;\`\`\`js
+* $pingms
 \`\`\`;true]
 $color[#4367FE]
 $checkPerms`,

@@ -1,21 +1,18 @@
-const { REST, Routes, Collection } = require('discord.js');
+const { REST, Routes } = require('discord.js');
+const { Functions } = require('./functions');
 const { TopggClient } = require('./topgg.js');
 const { ClientEvents } = require('./events.js');
-const { GetLyrics } = require('./lyrics.js');
 const { readdirSync, statSync } = require('node:fs');
 const { join } = require('node:path');
 const { red } = require('chalk');
 
-exports.Handlers = (client, config) => {
+exports.Handlers = async (client, config) => {
+    new Functions(client, join(__dirname, 'functions'), config.debug);
     loadAntiCrash(config);
     client.config = config;
     client.os = require('os');
-    client.timeout = new Collection();
-    client.lyrics = GetLyrics;
     client.status(...require('./statuses.js'));
-    client.functionManager.createFunction(...require('./functions.js'));
     client.on('interactionCreate', interaction => require('./interaction.js')(interaction, client));
-
     TopggClient(client, config);
     ClientEvents(client, config);
     client.body = [];

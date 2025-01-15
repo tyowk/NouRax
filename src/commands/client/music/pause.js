@@ -20,7 +20,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  The track has been paused]
+$description[$getEmoji[pause]  The track has been paused]
 $color[#4367FE]
 $pauseTrack
 $endif

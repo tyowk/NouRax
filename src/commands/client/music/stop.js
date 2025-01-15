@@ -15,10 +15,9 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  Stopped the player and cleared the queue]
+$description[$getEmoji[stop]  Stopped the player and cleared the queue]
 $color[#4367FE]
 $stopTrack
-$clearQueue
 $endif
 $checkVoice
 $checkPerms`,

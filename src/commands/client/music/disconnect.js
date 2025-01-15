@@ -11,7 +11,7 @@ $color[Red]
 $deleteIn[5s]
 $else
 $leavevc
-$description[$getEmoji[yes]  Leaving the voice channel <#$voiceId[$clientId]>]
+$description[$getEmoji[volumeup]  Leaving the voice channel <#$voiceId[$clientId]>]
 $color[#4367FE]
 $endif
 $checkVoice

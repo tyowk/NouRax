@@ -14,7 +14,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  Vapor wave filter applied]
+$description[$getEmoji[sparkles]  Vapor wave filter applied]
 $color[#4367FE]
 $setFilter[vaporwave]
 $endif

@@ -37,7 +37,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  Set the current track volume to \`$getContext[volume;1]%\`]
+$description[$getEmoji[volumeup]  Set the current track volume to \`$volume%\`]
 $color[#4367FE]
 $volume[$getContext[volume;1]]
 $endif

@@ -14,7 +14,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  Vibrato filter applied]
+$description[$getEmoji[sparkles]  Vibrato filter applied]
 $color[#4367FE]
 $setFilter[vibrato]
 $endif

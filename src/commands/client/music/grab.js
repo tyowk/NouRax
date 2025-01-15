@@ -21,12 +21,14 @@ $deleteIn[5s]
 $endelseif
 $else
 $dm
-$description[$replaceNowPlaying[$songInfo[sourceName]]  **[$songInfo[title]]($songInfo[url])**]
+$description[$replaceEmoji[$songInfo[sourceName]]  **Now playing [$songInfo[title]]($songInfo[url])**
+$getEmoji[blank]
+$getEmoji[bdot] **Artist:**  $songInfo[artist]
+$getEmoji[bdot] **Duration:**  $currentTrackDuration[true] / $songInfo[duration]
+$getEmoji[bdot] **Requester:**  $songInfo[requester.mention]
+$getEmoji[blank]]
 $image[$songInfo[thumbnail]]
-$addField[Requested by;$songInfo[requester.username] ($songInfo[requester.mention])]
-$addField[Duration;$humanizeMs[$currentTrackDuration] / $songInfo[duration]]
-$addField[Artist;$songInfo[artist]]
-$addButton[1;Search Song;link;$nonEscape[$songInfo[url]];false;$replaceNowPlaying[$songInfo[platform]]]
+$addButton[1;Search Song;link;$nonEscape[$songInfo[url]];false;$replaceEmoji[$songInfo[platform]]]
 $color[#4367FE]
 $endif
 $checkPerms`,

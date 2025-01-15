@@ -14,7 +14,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  Radio filter applied]
+$description[$getEmoji[sparkles]  Radio filter applied]
 $color[#4367FE]
 $setFilter[radio]
 $endif

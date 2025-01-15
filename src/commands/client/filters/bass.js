@@ -14,7 +14,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  Bass filter applied]
+$description[$getEmoji[sparkles]  Bass filter applied]
 $color[#4367FE]
 $setFilter[bass]
 $endif

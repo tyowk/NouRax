@@ -8,16 +8,16 @@ $isInteraction
 $description[**:wave:  Hello! I'm Rax!**  
 I'm a discord music bot, here to bring music to your server! My prefix is **\`nou\`**.  
 
-**Need Help?**  
+$getEmoji[bdot] **Need Help?**  
 Join our [Support Server](https://discord.gg/hyQYXcVnmZ) for assistance, feedback, or suggestions.  
 
-**Important:**  
+$getEmoji[bdot] **Important:**  
 By using and interacting with me, you agree to our **Terms of Service**. Type **\`/terms\`** to learn more.  
 
 **Let’s enjoy great music together!**]
-$addField[UTILITIES;\`help\`  \`info\`  \`invite\`  \`node\`  \`ping\`  \`prefix\`  \`privacy\`  \`support\`  \`terms\`  \`247\`]
-$addField[FILTERS;\`8d\`  \`bass\`  \`chimpunk\`  \`china\`  \`clear\`  \`darthvader\`  \`daycore\`  \`doubletime\`  \`earrape\`  \`electronic\`  \`equalizer\`  \`karaoke\`  \`nightcore\`  \`party\`  \`pitch\`  \`pop\`  \`radio\`  \`rate\`  \`slow\`  \`soft\`  \`speed\`  \`treblebass\`  \`tremolo\`  \`vaporwave\`  \`vibrato\`]
-$addField[MUSIC;\`autoplay\`  \`clearqueue\`  \`connect\`  \`disconnect\`  \`grab\`  \`loop\`  \`lyrics\`  \`nowplaying\`  \`pause\`  \`play\`  \`previous\`  \`queue\`  \`remove\`  \`replay\`  \`resume\`  \`search\`  \`seek\`  \`shuffle\`  \`skip\`  \`skipto\`  \`stop\`  \`unshuffle\`  \`volume\`]
+$addField[$getEmoji[bdot]  UTILITIES;\`help\`  \`info\`  \`invite\`  \`node\`  \`ping\`  \`prefix\`  \`privacy\`  \`support\`  \`terms\`  \`247\`]
+$addField[$getEmoji[bdot]  FILTERS;\`8d\`  \`bass\`  \`chimpunk\`  \`china\`  \`clear\`  \`darthvader\`  \`daycore\`  \`doubletime\`  \`earrape\`  \`electronic\`  \`equalizer\`  \`karaoke\`  \`nightcore\`  \`party\`  \`pitch\`  \`pop\`  \`radio\`  \`rate\`  \`slow\`  \`soft\`  \`speed\`  \`treblebass\`  \`tremolo\`  \`vaporwave\`  \`vibrato\`]
+$addField[$getEmoji[bdot]  MUSIC;\`autoplay\`  \`clearqueue\`  \`connect\`  \`disconnect\`  \`grab\`  \`loop\`  \`lyrics\`  \`nowplaying\`  \`pause\`  \`play\`  \`previous\`  \`queue\`  \`remove\`  \`replay\`  \`resume\`  \`search\`  \`seek\`  \`shuffle\`  \`skip\`  \`skipto\`  \`stop\`  \`unshuffle\`  \`volume\`]
 $footer[Requested by $username;$authorAvatar]
 $color[#4367FE]
 $addButton[1;Support Server;link;https://discord.gg/hyQYXcVnmZ]

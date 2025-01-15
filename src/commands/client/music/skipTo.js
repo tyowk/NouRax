@@ -34,7 +34,7 @@ $deleteIn[5s]
 $endelseif
 $else
 $skipto[$getContext[song;1]]
-$description[$getEmoji[yes]  Skipped to [$songInfo[title;$getContext[song;1]]]($songInfo[url;$getContext[song;1]])]
+$description[$getEmoji[skip]  Skipped to [$songInfo[title;$getContext[song;1]]]($songInfo[url;$getContext[song;1]])]
 $color[#4367FE]
 $endif
 $checkVoice

@@ -14,7 +14,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  Speed filter applied]
+$description[$getEmoji[sparkles]  Speed filter applied]
 $color[#4367FE]
 $setFilter[speed]
 $endif

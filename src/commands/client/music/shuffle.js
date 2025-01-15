@@ -16,7 +16,7 @@ $deleteIn[5s]
 $endelseif
 $else
 $shuffleQueue
-$description[$getEmoji[yes]  Shuffle the queue]
+$description[$getEmoji[shuffle]  Shuffle the queue]
 $color[#4367FE]
 $endif
 $checkVoice

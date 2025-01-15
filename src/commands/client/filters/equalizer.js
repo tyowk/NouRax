@@ -14,7 +14,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  Equalizer filter applied]
+$description[$getEmoji[sparkles]  Equalizer filter applied]
 $color[#4367FE]
 $setFilter[equalizer]
 $endif

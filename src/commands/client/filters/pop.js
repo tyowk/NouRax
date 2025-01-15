@@ -14,7 +14,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  Pop filter applied]
+$description[$getEmoji[sparkles]  Pop filter applied]
 $color[#4367FE]
 $setFilter[pop]
 $endif

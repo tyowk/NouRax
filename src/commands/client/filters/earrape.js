@@ -14,7 +14,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  Earrape filter applied]
+$description[$getEmoji[sparkles]  Earrape filter applied]
 $color[#4367FE]
 $setFilter[earrape]
 $endif

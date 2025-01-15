@@ -14,7 +14,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  Rate filter applied]
+$description[$getEmoji[sparkles]  Rate filter applied]
 $color[#4367FE]
 $setFilter[rate]
 $endif

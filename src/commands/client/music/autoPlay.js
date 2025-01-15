@@ -15,12 +15,12 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $elseif[$autoplay==false]
-$description[$getEmoji[yes]  Autoplay mode is enabled]
+$description[$getEmoji[autoplay]  Autoplay mode is enabled]
 $color[#4367FE]
 $autoplay[true]
 $endelseif
 $else
-$description[$getEmoji[yes]  Autoplay mode is disabled]
+$description[$getEmoji[autoplay]  Autoplay mode is disabled]
 $color[Red]
 $autoplay[false]
 $endif

@@ -14,7 +14,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  Pitch filter applied]
+$description[$getEmoji[sparkles]  Pitch filter applied]
 $color[#4367FE]
 $setFilter[pitch]
 $endif

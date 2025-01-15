@@ -3,6 +3,14 @@ module.exports = [
         name: 'queue',
         description: 'Shows the current guild queue',
         aliases: 'q',
+        options: [
+            {
+                name: 'page',
+                description: 'Queue page',
+                type: 10,
+                required: false,
+            },
+        ],
         $if: 'old',
         code: `
 $isInteraction
@@ -16,45 +24,40 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$title[QUEUE LIST]
-$description[>>> $queue[1;10;{position}. [{title}]({url}) - <@{requester.id}>]]
-$color[#4367FE]
 $if[$queueLength>10]
-$addButton[1;X;danger;delete_$authorId]
-$addButton[1;Next;primary;queueNext_2_$authorId]
-$addButton[1;$queueLength Songs;primary;length;true]
-$addButton[1;Previous;primary;queuePrevious_0_$authorId;true]
+$componentCollector[$get[ID];$authorId;5m;30s;queuePrevious,queueNext;queuePrevious,queueNext;{newEmbed:{description:$getEmoji[no]  Nuh uh uh... you can't use this button!}{color:Red}}{interaction}{ephemeral};timeoutComponents]
+$let[ID;$sendMessage[{newEmbed:{title:$nonEscape[$getEmoji[queue]  QUEUE LIST]}{description:>>> $queue[$get[PAGE];10;{position}. [{title}]({url}) - <@{requester.id}>]}{color:#4367FE}}{actionRow:{button::2:queuePrevious_$math[$get[PAGE]-1]:$checkCondition[$get[PAGE]<=1]:$getEmoji[previouspage]}{button:$queueLength Songs:2:length:true}{button:$get[PAGE] / $get[MAXPAGE]:2:page:true}{button::2:queueNext_$math[$get[PAGE]+1]:$checkCondition[$get[PAGE]>=$get[MAXPAGE]]:$getEmoji[nextpage]}};true]]
+$else
+$sendMessage[{newEmbed:{title:$nonEscape[$getEmoji[queue]  QUEUE LIST]}{description:>>> $queue[$get[PAGE];10;{position}. [{title}]({url}) - <@{requester.id}>]}{color:#4367FE}}]
 $endif
+$let[PAGE;$replaceText[$replaceText[$checkCondition[$isNumber[$getContext[page;1]]==true&&$getContext[page;1]<=$get[MAXPAGE]];true;$getContext[page;1]];false;1]]
+$let[MAXPAGE;$ceil[$math[$queueLength/10]]]
 $endif
 $checkPerms
 `,
     },
     {
-        type: 'interaction',
-        prototype: 'button',
+        name: 'queueNext',
+        type: 'awaited',
         $if: 'old',
         code: `
-$timeoutComponent
-$queueNext
-$interactionDeferUpdate
-$checkPerms
-$onlyIf[$authorId==$splitText[3];$getEmoji[no]  Nuh uh uh... you can't use this button!{intetaction}{ephemeral}]
-$onlyIf[$splitText[1]==queueNext;]
-$textSplit[$interactionData[customId];_]
-`,
+$nextPage[queue]
+$checkPerms`,
     },
     {
-        type: 'interaction',
-        prototype: 'button',
+        name: 'queuePrevious',
+        type: 'awaited',
         $if: 'old',
         code: `
-$timeoutComponent
-$queuePrevious
-$interactionDeferUpdate
-$checkPerms
-$onlyIf[$authorId==$splitText[3];$getEmoji[no]  Nuh uh uh... you can't use this button!{intetaction}{ephemeral}]
-$onlyIf[$splitText[1]==queuePrevious;]
-$textSplit[$interactionData[customId];_]
+$previousPage[queue]
+$checkPerms`,
+    },
+    {
+        name: 'timeoutComponents',
+        type: 'awaited',
+        $if: 'old',
+        code: `
+$removeComponents[$channelId;$messageId;all]
 `,
     },
 ];

@@ -14,7 +14,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  China filter applied]
+$description[$getEmoji[sparkles]  China filter applied]
 $color[#4367FE]
 $setFilter[china]
 $endif

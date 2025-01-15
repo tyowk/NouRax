@@ -15,7 +15,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  8D filter applied]
+$description[$getEmoji[sparkles]  8D filter applied]
 $color[#4367FE]
 $setFilter[8d]
 $endif

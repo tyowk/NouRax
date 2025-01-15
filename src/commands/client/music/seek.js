@@ -38,7 +38,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  Fast-forwarding to \`$getContext[duration;all]\`]
+$description[🔎  Fast-forwarding to \`$getContext[duration;all]\`]
 $color[#4367FE]
 $seek[$getContext[duration;all]]
 $endif

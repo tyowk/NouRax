@@ -14,7 +14,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  Darth Vader filter applied]
+$description[$getEmoji[sparkles]  Darth Vader filter applied]
 $color[#4367FE]
 $setFilter[darthvader]
 $endif

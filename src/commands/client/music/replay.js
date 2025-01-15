@@ -15,7 +15,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  Replaying **[$songInfo[title]]($songInfo[url])**]
+$description[$getEmoji[replay]  Replaying **[$songInfo[title]]($songInfo[url])**]
 $color[#4367FE]
 $replayTrack
 $if[$playerStatus==paused]

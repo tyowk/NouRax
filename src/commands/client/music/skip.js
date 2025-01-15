@@ -15,7 +15,7 @@ $color[Red]
 $deleteIn[5s]
 $endelseif
 $else
-$description[$getEmoji[yes]  Skipped to the next song]
+$description[$getEmoji[skip]  Skipped to the next song]
 $color[#4367FE]
 $skipTrack
 $endif
