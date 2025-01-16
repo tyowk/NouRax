@@ -9,5 +9,5 @@ $getEmoji[blank]
 $getEmoji[rdot] **Interval:**  $eventInfo[interval]
 $getEmoji[rdot] **Left:**  $eventInfo[left]]
 $color[Yellow]
-$addTimestamp`
-}
+$addTimestamp`,
+};

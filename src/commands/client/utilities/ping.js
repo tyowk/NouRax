@@ -11,7 +11,7 @@ $addField[$getEmoji[bdot] Player;\`\`\`js
 \`\`\`;true]
 $endif
 $addField[$getEmoji[bdot] Database;\`\`\`js
-* $databasePingms
+* -1ms
 \`\`\`;true]
 $addField[$getEmoji[bdot] Bot Latency;\`\`\`js
 * $replaceText[$messageping$interactionPing;NaN;]ms

@@ -17,7 +17,7 @@ By using and interacting with me, you agree to our **Terms of Service**. Type **
 **Let’s enjoy great music together!**]
 $addField[$getEmoji[bdot]  UTILITIES;\`help\`  \`info\`  \`invite\`  \`node\`  \`ping\`  \`prefix\`  \`privacy\`  \`support\`  \`terms\`  \`247\`]
 $addField[$getEmoji[bdot]  FILTERS;\`8d\`  \`bass\`  \`chimpunk\`  \`china\`  \`clear\`  \`darthvader\`  \`daycore\`  \`doubletime\`  \`earrape\`  \`electronic\`  \`equalizer\`  \`karaoke\`  \`nightcore\`  \`party\`  \`pitch\`  \`pop\`  \`radio\`  \`rate\`  \`slow\`  \`soft\`  \`speed\`  \`treblebass\`  \`tremolo\`  \`vaporwave\`  \`vibrato\`]
-$addField[$getEmoji[bdot]  MUSIC;\`autoplay\`  \`clearqueue\`  \`connect\`  \`disconnect\`  \`grab\`  \`loop\`  \`lyrics\`  \`nowplaying\`  \`pause\`  \`play\`  \`previous\`  \`queue\`  \`remove\`  \`replay\`  \`resume\`  \`search\`  \`seek\`  \`shuffle\`  \`skip\`  \`skipto\`  \`stop\`  \`unshuffle\`  \`volume\`]
+$addField[$getEmoji[bdot]  MUSIC;\`autoplay\`  \`clearhistory\`  \`clearqueue\`  \`connect\`  \`disconnect\`  \`grab\`  \`history\`  \`loop\`  \`lyrics\`  \`nowplaying\`  \`pause\`  \`play\`  \`previous\`  \`queue\`  \`remove\`  \`replay\`  \`resume\`  \`search\`  \`seek\`  \`shuffle\`  \`skip\`  \`skipto\`  \`stop\`  \`unshuffle\`  \`volume\`]
 $footer[Requested by $username;$authorAvatar]
 $color[#4367FE]
 $addButton[1;Support Server;link;https://discord.gg/hyQYXcVnmZ]

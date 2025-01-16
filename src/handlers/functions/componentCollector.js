@@ -39,8 +39,8 @@ module.exports = {
             if (errorMsg && filter !== 'everyone' ? interaction.user.id !== filter : false) {
                 if (d.data.interaction?.deferred) {
                     d.data.interaction.reply = d.data.interaction?.editReply?.bind(d.data.interaction);
-                };
-                
+                }
+
                 return d.aoiError.makeMessageError(d.client, d.channel, errorMsg.data || errorMsg, errorMsg.options, d);
             }
 
@@ -61,13 +61,14 @@ module.exports = {
                 [],
                 cmd,
                 undefined,
-                undefined,
+                false,
                 undefined,
                 {
                     ...d.data,
                     interaction,
                     awaitData,
                 },
+                undefined,
             );
         });
 
@@ -89,13 +90,14 @@ module.exports = {
                         [],
                         endcmd,
                         undefined,
-                        undefined,
+                        false,
                         undefined,
                         {
                             ...d.data,
                             endData,
                             awaitData,
                         },
+                        undefined,
                     );
                 }
             });

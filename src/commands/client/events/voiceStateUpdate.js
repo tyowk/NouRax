@@ -12,7 +12,7 @@ $resumeTrack
 $endif
 $elseif[$voiceEmpty==false&&$voiceId[$authorId]==&&$voiceMemberCount[$voiceId[$clientId]]==1]
 $awaitExecute[handleStates]
-$if[$playerStatus!=paused]
+$if[$playerStatus==playing]
 $voiceEmpty[true]
 $pauseTrack
 $endif
@@ -26,11 +26,13 @@ $useChannel[$get[ID]]
 $onlyIf[$hasPermsInChannel[$get[ID];$clientId;sendmessages;embedlinks]==true;]
 $onlyIf[$channelExists[$get[ID]]==true;]
 $destroyPlayer
+$if[$isCurrentExists==true]
 $deleteNowPlaying
+$endif
 $let[ID;$playerChannelId]
 $onlyIf[$voiceId[$clientId]==&&$hasPlayer==true;]
 $endif
-$onlyIf[$oldState[mute]==$newState[mute]||$oldState[deaf]==$newState[deaf]&&$isBot==false;]
+$onlyIf[$oldState[mute]==$newState[mute]||$oldState[deaf]==$newState[deaf]||$isBot==false;]
 $suppressErrors
 `,
     },
@@ -46,7 +48,9 @@ $useChannel[$get[ID]]
 $onlyIf[$hasPermsInChannel[$get[ID];$clientId;sendmessages;embedlinks]==true;]
 $onlyIf[$channelExists[$get[ID]]==true;]
 $destroyPlayer
+$if[$isCurrentExists==true]
 $deleteNowPlaying
+$endif
 $let[ID;$playerChannelId]
 $onlyif[$hasPlayer==true&&$voiceMemberCount[$voiceId[$clientid]]==1;]
 $wait[1m]

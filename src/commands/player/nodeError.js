@@ -6,5 +6,5 @@ module.exports = {
 $title[$getEmoji[offline]  $eventInfo[name] Error]
 $description[Lavalink **$eventInfo[name]** error: $eventInfo[error]]
 $color[Red]
-$addTimestamp`
-}
+$addTimestamp`,
+};

@@ -26,7 +26,7 @@ $getEmoji[bdot] \`Version     ::\`  ➜  **v1.7.0**
 $getEmoji[bdot] \`Uptime      ::\`  ➜  **$uptime**
 $getEmoji[bdot] \`API Latency ::\`  ➜  **$pingms**
 $getEmoji[bdot] \`Bot Latency ::\`  ➜  **$replaceText[$messageping$interactionPing;NaN;]ms**
-$getEmoji[bdot] \`Database    ::\`  ➜  **$databasePingms**]
+$getEmoji[bdot] \`Database    ::\`  ➜  **-1ms**]
 $footer[© 2024 NouJS Development]
 $color[#4367FE]
 $checkPerms
