@@ -5,17 +5,17 @@ module.exports = [
         $if: 'old',
         code: `
 $if[$authorId!=$clientId]
-$if[$voiceEmpty==true&&$voiceId[$authorId]!=&&$voiceMemberCount[$voiceId[$clientId]]!=1]
-$if[$playerStatus==paused]
+$if[$voiceEmpty==true&&$voiceId[$authorId]!=&&$voiceId[$clientId]!=]
 $voiceEmpty[false]
 $resumeTrack
-$endif
-$elseif[$voiceEmpty==false&&$voiceId[$authorId]==&&$voiceMemberCount[$voiceId[$clientId]]==1]
+$onlyIf[$voiceMemberCount[$voiceId[$clientId]]!=1&&$playerStatus==paused;]
+$elseif[$voiceEmpty==false&&$voiceId[$authorId]==&&$voiceId[$clientId]!=]
 $awaitExecute[handleStates]
 $if[$playerStatus==playing]
 $voiceEmpty[true]
 $pauseTrack
 $endif
+$onlyIf[$voiceMemberCount[$voiceId[$clientId]]==1;]
 $endelseif
 $endif
 $onlyIf[$hasPlayer==true;]
@@ -45,14 +45,14 @@ $description[The voice channel is empty more than 1 minute
 Stopped the player and leaving the voice channel]
 $color[Red]
 $useChannel[$get[ID]]
-$onlyIf[$hasPermsInChannel[$get[ID];$clientId;sendmessages;embedlinks]==true;]
-$onlyIf[$channelExists[$get[ID]]==true;]
+$onlyIf[$channelExists[$get[ID]]==true&&$hasPermsInChannel[$get[ID];$clientId;sendmessages;embedlinks]==true;]
 $destroyPlayer
 $if[$isCurrentExists==true]
 $deleteNowPlaying
 $endif
 $let[ID;$playerChannelId]
 $onlyif[$hasPlayer==true&&$voiceMemberCount[$voiceId[$clientid]]==1;]
+$onlyIf[$voiceId[$clientId]!=;]
 $wait[1m]
 $suppressErrors`,
     },

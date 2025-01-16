@@ -7,8 +7,10 @@ module.exports = [
         code: `
 $if[$hasPlayer==false]
 $interactionReply[{newEmbed:{description:$getEmoji[no]  There are no players for this guild!}{color:Red}};;true]
+$removeComponents[$channelId;$messageId;all]
 $elseif[$queueLength==0]
 $interactionReply[{newEmbed:{description:$getEmoji[no]  The queue is empty!}{color:Red}};;true]
+$removeComponents[$channelId;$messageId;all]
 $endelseif
 $else
 $interactionReply[{newEmbed:{description:$getEmoji[shuffle]  Please select the shuffle mode}{color:#4367FE}}
