@@ -17,24 +17,24 @@
 
 1. **Clone the repository**:
 
-```bash
-git clone https://github.com/tyowk/NouRax.git
-cd NouRax
-```
+  ```bash
+  git clone https://github.com/tyowk/NouRax.git
+  cd NouRax
+  ```
 
 2. **Install dependencies**:
 
-```bash
-npm install
-```
+  ```bash
+  npm install
+  ```
 
 3. **Change env.example to .env** in the root of the project directory, and ensure that all required environment variables are correctly configured for the project to function properly.
 
 4. **Run the bot**:
 
-```bash
-npm start
-```
+  ```bash
+  npm start
+  ```
 
 ## Contributing
 
@@ -44,21 +44,21 @@ npm start
 
 2. Create a new branch:
 
-```bash
-git checkout -b feature-name
-```
+  ```bash
+  git checkout -b feature-name
+  ```
 
 3. Make your changes and commit them:
 
-```bash
-git commit -m 'Add new feature'
-```
+  ```bash
+  git commit -m 'Add new feature'
+  ```
 
 4. Push your changes to your forked repository:
 
-```bash
-git push origin feature-name
-```
+  ```bash
+  git push origin feature-name
+  ```
 
 5. Open a pull request to the main repository.
 
@@ -84,7 +84,6 @@ See [here](https://github.com/tyowk/NouRax/tree/master/LICENSE) for more details
 
 - [discord.js](https://discord.js.org/): A powerful library for interacting with the Discord API.
 - [aoi.js](https://aoi.js.org): A framework that simplifies the creation of Discord bots.
-- [topgg.utils](https://github.com/tyowk/topgg.utils): Utilities for interacting with the Top.gg API.
 - [aoijs.lavalink](https://lavalink.noujs.my.id): A package for handling audio streaming, providing high-quality music playback.
 
 ## Support

@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 module.exports = {
+    prod: process.env.PRODUCTION === 'true' ? true : false,
     token: process.env.TOKEN,
     clientId: process.env.CLIENT_ID,
     prefix: process.env.PREFIX,
@@ -9,7 +10,7 @@ module.exports = {
     port: Number(process.env.PORT),
     nodes: require('./nodes.js'),
     emojis: require('./emojis.js'),
-    // patreon: require('./patreon.js'),
     topgg: require('./topgg.js'),
-    logs: require('./logs.js'),
+    logs: require('./logs.js')
+    // patreon: require('./patreon.js'),
 };

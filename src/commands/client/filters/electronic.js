@@ -1,23 +1,14 @@
 module.exports = {
     name: 'electronic',
     description: 'Applies electronic filter',
-    $if: 'old',
+    cooldown: '3s',
     code: `
 $isInteraction
-$if[$hasPlayer==false]
-$description[$getEmoji[no]  There are no players for this guild!]
-$color[Red]
-$deleteIn[5s]
-$elseif[$playerStatus==stopped||$playerStatus==destroyed]
-$description[$getEmoji[no]  There are no track currently playing!]
-$color[Red]
-$deleteIn[5s]
-$endelseif
-$else
 $description[$getEmoji[sparkles]  Electronic filter applied]
 $color[#4367FE]
 $setFilter[electronic]
-$endif
+$onlyIf[$playerStatus!=stopped&&$playerStatus!=destroyed;{newEmbed:{description:$getEmoji[no]  There are no track currently playing!}{color:Red}}{deleteIn:5s}]
+$onlyIf[$hasPlayer==true;{newEmbed:{description:$getEmoji[no]  There are no players for this guild!}{color:Red}}{deleteIn:5s}]
 $checkVoice
-$checkPerms`,
+$checkPerms`
 };

@@ -17,15 +17,15 @@ const client = new AoiClient({
     shardCount: getInfo().TOTAL_SHARDS,
     allowedMentions: {
         parse: ['users', 'roles'],
-        repliedUser: false,
-    },
+        repliedUser: false
+    }
 });
 
-/* new Database(client, {
+/*new Database(client, {
     url: config.database,
     tables: ['config', 'playlist'],
-    debug: config.debug,
-}); */
+    debug: config.debug
+});*/
 
 new Manager(client, {
     nodes: config.nodes,
@@ -36,12 +36,14 @@ new Manager(client, {
     voiceConnectionTimeout: 60,
     reconnectInterval: 20,
     reconnectTries: 200,
-    /* playlist: {
+    userAgent: 'NouRax',
+    moveOnDisconnect: true
+    /*playlist: {
         enable: true,
         table: 'playlist',
         maxSongs: 20,
-        maxPlaylist: 5,
-    }, */
+        maxPlaylist: 5
+    }*/
 });
 
 client.shard = new ClusterClient(client);

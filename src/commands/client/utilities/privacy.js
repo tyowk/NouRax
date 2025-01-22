@@ -1,9 +1,10 @@
 module.exports = {
     name: 'privacy',
     description: "NouRax's Privacy Policy",
-    $if: 'old',
+    cooldown: '3s',
     code: `
 $isInteraction
+$flags[64]
 $addField[$getEmoji[bdot]  Contact Us;If you have any questions or concerns about this Privacy Policy, please contact us at **tyowk@outlook.com**. We are here to help and will respond to your inquiries as soon as possible.]
 $addField[$getEmoji[bdot]  Changes to This Privacy Policy;We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on our website, Discord server, or through the bot. Your continued use of the bot after any changes constitutes your acceptance of the new Privacy Policy.]
 $addField[$getEmoji[bdot]  Third-Party Services;NouRax may contain links to third-party websites or services. We are not responsible for the privacy practices of these third parties. We encourage you to review the privacy policies of any third-party services you use, as their practices may differ from ours.]
@@ -27,5 +28,5 @@ $title[NOURAX'S PRIVACY POLICY]
 $color[#4367FE]
 $footer[© NouJS Development | Last Updated Dec 15, 2024]
 $checkPerms
-`,
+`
 };

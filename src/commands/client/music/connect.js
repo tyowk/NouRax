@@ -1,28 +1,24 @@
 module.exports = {
     name: 'connect',
     description: 'Connect to a voice channel',
-    aliases: 'join',
+    params: ['[channel]'],
+    aliases: ['summon', 'join'],
+    cooldown: '3s',
     options: [
         {
             name: 'channel',
             description: 'Select the voice channel',
             type: 7,
             required: false,
-            channel_types: [2],
-        },
+            channel_types: [2]
+        }
     ],
-    $if: 'old',
     code: `
 $isInteraction
-$if[$hasPlayer==true]
-$description[$getEmoji[no]  I already joined to <#$voiceId[$clientId]>!]
-$color[Red]
-$deleteIn[5s]
-$else
 $description[$getEmoji[volumeup]  Joined to <#$voiceId[$clientId]>]
 $color[#4367FE]
 $joinvc[$getContext[channel;false]]
-$endif
+$onlyIf[$hasPlayer==false;{newEmbed:{description:$getEmoji[no]  I already joined to <#$voiceId[$clientId]>!}{color:Red}}{deleteIn:5s}{ephemeral}]
 $checkVoice
-$checkPerms`,
+$checkPerms`
 };

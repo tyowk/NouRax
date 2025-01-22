@@ -1,24 +1,15 @@
 module.exports = {
     name: 'shuffle',
     description: 'Shuffle the queue',
+    cooldown: '3s',
     aliases: 'sf',
-    $if: 'old',
     code: `
 $isInteraction
-$if[$hasPlayer==false]
-$description[$getEmoji[no]  There are no players for this guild!]
-$color[Red]
-$deleteIn[5s]
-$elseif[$queuelength==0]
-$description[$getEmoji[no]  The queue is empty!]
-$color[Red]
-$deleteIn[5s]
-$endelseif
-$else
 $shuffleQueue
 $description[$getEmoji[shuffle]  Shuffle the queue]
 $color[#4367FE]
-$endif
+$onlyIf[$queueLength>0;{newEmbed:{description:$getEmoji[no]  The queue is empty!}{color:Red}}{deleteIn:5s}{ephemeral}]
+$onlyIf[$hasPlayer==true;{newEmbed:{description:$getEmoji[no]  There are no players for this guild!}{color:Red}}{deleteIn:5s}{ephemeral}]
 $checkVoice
-$checkPerms`,
+$checkPerms`
 };

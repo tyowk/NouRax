@@ -27,5 +27,5 @@ module.exports = {
     bdot: '<:bdot:1314836761054281808>',
     blank: '<:blank:1328603287586345001>',
     nextpage: '<:nextpage:1328725894134501438>',
-    previouspage: '<:previouspage:1328725919510171778>',
+    previouspage: '<:previouspage:1328725919510171778>'
 };

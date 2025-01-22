@@ -2,6 +2,7 @@ module.exports = {
     name: 'ping',
     description: 'Pong! check if the bot is online',
     aliases: 'pong',
+    cooldown: '3s',
     $if: 'old',
     code: `
 $isInteraction
@@ -20,5 +21,6 @@ $addField[$getEmoji[bdot] API Latency;\`\`\`js
 * $pingms
 \`\`\`;true]
 $color[#4367FE]
-$checkPerms`,
+$image[https://cdn.noujs.my.id/guild/transparent.png]
+$checkPerms`
 };

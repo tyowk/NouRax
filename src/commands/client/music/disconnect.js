@@ -1,19 +1,15 @@
 module.exports = {
     name: 'disconnect',
     description: 'Disconnect from a voice channel',
+    cooldown: '3s',
     aliases: ['dc', 'leave'],
-    $if: 'old',
     code: `
 $isInteraction
-$if[$hasPlayer==false]
-$description[$getEmoji[no]  There are no players for this guild!]
-$color[Red]
-$deleteIn[5s]
-$else
 $leavevc
+$deleteNowPlaying
 $description[$getEmoji[volumeup]  Leaving the voice channel <#$voiceId[$clientId]>]
 $color[#4367FE]
-$endif
+$onlyIf[$hasPlayer==true;{newEmbed:{description:$getEmoji[no]  There are no players for this guild!}{color:Red}}{deleteIn:5s}{ephemeral}]
 $checkVoice
-$checkPerms`,
+$checkPerms`
 };

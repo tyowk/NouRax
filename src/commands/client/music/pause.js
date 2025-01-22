@@ -1,29 +1,16 @@
 module.exports = {
     name: 'pause',
     description: 'Pause the current playing track',
+    cooldown: '3s',
     aliases: 'ps',
-    $if: 'old',
     code: `
 $isInteraction
-$if[$hasPlayer==false]
-$description[$getEmoji[no]  There are no players for this guild!]
-$color[Red]
-$deleteIn[5s]
-$elseif[$playerStatus==stopped||$playerStatus==destroyed]
-$description[$getEmoji[no]  There are no track currently playing!]
-$color[Red]
-$deleteIn[5s]
-$endelseif
-$elseif[$playerStatus==paused]
-$description[$getEmoji[no]  The track already paused!]
-$color[Red]
-$deleteIn[5s]
-$endelseif
-$else
 $description[$getEmoji[pause]  The track has been paused]
 $color[#4367FE]
 $pauseTrack
-$endif
+$onlyIf[$playerStatus!=paused;{newEmbed:{description:$getEmoji[no]  The track already paused!}{color:Red}}{deleteIn:5s}{ephemeral}]
+$onlyIf[$playerStatus!=stopped&&$playerStatus!=destroyed;{newEmbed:{description:$getEmoji[no]  There are no track currently playing!}{color:Red}}{deleteIn:5s}{ephemeral}]
+$onlyIf[$hasPlayer==true;{newEmbed:{description:$getEmoji[no]  There are no players for this guild!}{color:Red}}{deleteIn:5s}{ephemeral}]
 $checkVoice
-$checkPerms`,
+$checkPerms`
 };

@@ -13,7 +13,7 @@ module.exports = async (interaction, client) => {
             channel: interaction.channel,
             author: interaction.author,
             member: interaction.member,
-            isAutocomplete: interaction.isAutocomplete(),
+            isAutocomplete: interaction.isAutocomplete()
         };
 
         for (const cmd of cmds) {
@@ -22,7 +22,7 @@ module.exports = async (interaction, client) => {
                 (!!cmd.sub_command_group && interaction.options._group !== cmd.sub_command_group)
             )
                 continue;
-            await interaction.deferReply().catch(() => {});
+            if (cmd.defer === true) await interaction.deferReply().catch(() => {});
 
             if (cmd.name?.includes('$')) {
                 cmd.name = (
@@ -34,7 +34,7 @@ module.exports = async (interaction, client) => {
                         client.db,
                         true,
                         undefined,
-                        { interaction },
+                        { interaction }
                     )
                 )?.code;
             }
@@ -54,13 +54,13 @@ module.exports = async (interaction, client) => {
                 undefined,
                 undefined,
                 undefined,
-                false,
+                false
             );
         }
     } catch (err) {
         await interaction.reply({
             content: `🚫  An error occured: ${err.message || 'unknown error'}`,
-            flags: 64,
+            flags: 64
         });
     }
 };

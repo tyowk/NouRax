@@ -1,14 +1,16 @@
 module.exports = {
     name: 'play',
     description: 'Add new track to the guild queue',
-    aliases: 'p',
+    aliases: ['add', 'track', 'song', 'p'],
+    params: ['<song>'],
+    cooldown: '3s',
     options: [
         {
             name: 'song',
             description: 'Song title or a valid url',
             type: 3,
-            required: true,
-        },
+            required: true
+        }
     ],
     $if: 'old',
     code: `
@@ -28,10 +30,11 @@ $playTrack[$getContext[song;all]]
 $let[QUEUE;$textTrim[$replaceText[$replaceText[$checkCondition[$isCurrentExists==false];false;$queueLength];true;-1]]]
 $endif
 $onlyIf[$checkContains[$trackLoadType[$getContext[song;all]];track;search;playlist]==true;{newEmbed:{description:$nonEscape[$getEmoji[no]]  No results found}{color:Red}}{deleteIn:10s}]
+$interactionDefer
 $onlyIf[$isYoutubeLink[$getContext[song;all]]==false;{newEmbed:{description:$nonEscape[$getEmoji[no]]  Sorry, this bot doesn't support YouTube at the moment. Please try another music platform!}{color:Red}}{deleteIn:10s}]
 $onlyIf[$getContext[song;all]!=;{newEmbed:{description:$nonEscape[$getEmoji[no]]  Nu uh uh... please provide a valid url or song title!}{color:Red}}{deleteIn:10s}{ephemeral}]
 $checkVoice
 $checkPermsPlayer
 $checkPerms
-`,
+`
 };

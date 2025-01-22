@@ -4,9 +4,9 @@ module.exports = [
         host: 'example.meow.com',
         port: 8080,
         secure: false,
-        auth: 'youshallnotpass',
+        auth: 'youshallnotpass'
     },
     {
         // Add more
-    },
+    }
 ];

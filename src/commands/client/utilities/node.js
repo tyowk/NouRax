@@ -1,6 +1,7 @@
 module.exports = {
     name: 'node',
     description: 'Display current lavalink node status',
+    cooldown: '3s',
     $if: 'old',
     code: `
 $isInteraction
@@ -23,6 +24,7 @@ $getEmoji[bdot] \`System Load   ::\`  ➜  **$roundTenth[$nodeInfo[Node 1;cpu.sy
 $getEmoji[bdot] \`Lavalink Load ::\`  ➜  **$roundTenth[$nodeInfo[Node 1;cpu.lavalink];2]%**]
 $endif
 $color[#4367FE]
+$image[https://cdn.noujs.my.id/guild/transparent.png]
 $checkPerms
-`,
+`
 };

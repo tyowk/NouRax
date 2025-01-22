@@ -32,9 +32,9 @@ exports.ClientEvents = (client, config) => {
 ██╔══██╗██╔══██║░██╔██╗░
 ██║░░██║██║░░██║██╔╝╚██╗
 ╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝
-• Status:     ${green('Ready!')}
-• Shard(s):   ${cyan(client.shard.id)}
-• Cluster(s): ${cyan(client.shard.count)}
+  • Status     : ${green('Ready!')}
+  • Cluster ID : ${cyan(client.shard.id)}
+  • Clusters   : ${cyan(client.shard.count)}
         `);
         console.log(' ');
     });

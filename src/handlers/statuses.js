@@ -3,12 +3,12 @@ module.exports = [
         name: 'Get started with /help',
         type: 'Custom',
         status: 'online',
-        time: 20,
+        time: 20
     },
     {
-        name: 'NouJS Development',
+        name: 'Nou Juvou Saven',
         type: 'Custom',
         status: 'online',
-        time: 20,
-    },
+        time: 20
+    }
 ];

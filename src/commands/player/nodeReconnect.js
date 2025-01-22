@@ -9,5 +9,6 @@ $getEmoji[blank]
 $getEmoji[rdot] **Interval:**  $eventInfo[interval]
 $getEmoji[rdot] **Left:**  $eventInfo[left]]
 $color[Yellow]
-$addTimestamp`,
+$addTimestamp
+$onlyIf[$hasPermsInChannel[$channelId;$clientid;viewchannel;sendmessages;embedlinks]==true;]`
 };

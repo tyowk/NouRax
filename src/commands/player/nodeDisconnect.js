@@ -6,5 +6,6 @@ module.exports = {
 $title[$getEmoji[offline]  $eventInfo[name] Disconnected]
 $description[Lavalink **$eventInfo[name]** disconnected.]
 $color[Red]
-$addTimestamp`,
+$addTimestamp
+$onlyIf[$hasPermsInChannel[$channelId;$clientid;viewchannel;sendmessages;embedlinks]==true;]`
 };

@@ -1,20 +1,11 @@
 module.exports = {
     name: 'clearqueue',
     description: 'Remove all tracks from the queue',
-    aliases: 'cq',
+    aliases: ['clearq', 'cq'],
+    cooldown: '3s',
     $if: 'old',
     code: `
 $isInteraction
-$if[$hasPlayer==false]
-$description[$getEmoji[no]  There are no players for this guild!]
-$color[Red]
-$deleteIn[5s]
-$elseif[$queuelength==0]
-$description[$getEmoji[no]  The queue is already empty!]
-$color[Red]
-$deleteIn[5s]
-$endelseif
-$else
 $clearQueue
 $if[$queueLength>1]
 $description[$getEmoji[remove]  Deleting $queueLength songs from the queue]
@@ -22,7 +13,8 @@ $else
 $description[$getEmoji[remove]  Remove $queueLength song from the queue]
 $endif
 $color[#4367FE]
-$endif
+$onlyIf[$playerStatus!=stopped||$playerStatus!=destroyed;{newEmbed:{description:$getEmoji[no]  There are no track currently playing!}{color:Red}}{deleteIn:5s}{ephemeral}]
+$onlyIf[$queueLength>0;{newEmbed:{description:$getEmoji[no]  The is already empty!}{color:Red}}{deleteIn:5s}{ephemeral}]
 $checkVoice
-$checkPerms`,
+$checkPerms`
 };

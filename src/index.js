@@ -6,7 +6,7 @@ const manager = new ClusterManager(`${__dirname}/client.js`, {
     totalShards: 1,
     shardsPerClusters: 1,
     mode: 'process',
-    token,
+    token
 });
 
 manager.on('clusterCreate', cluster => {

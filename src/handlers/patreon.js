@@ -1,4 +1,5 @@
-/*
+/* SOON!
+
 exports.PatreonLoop = async (client, db) => {
     await CheckPatrons(client, db, client.patreon);
     setInterval(async () => {
