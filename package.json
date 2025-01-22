@@ -16,7 +16,7 @@
     },
     "dependencies": {
         "aoi.js": "^6.9.0",
-        "aoijs.lavalink": "github:tyowk/aoijs.lavalink",
+        "aoijs.lavalink": "^4.7.0",
         "aoijs.mysql": "^4.9.0",
         "discord-hybrid-sharding": "^2.2.3",
         "dotenv": "^16.4.7"
