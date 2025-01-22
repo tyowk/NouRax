@@ -12,7 +12,7 @@ module.exports = {
         const cooldowns = d.client.cooldowns;
         const cmd = d.client.cmd.default.find(x => x?.name?.toLowerCase() === d.command.name);
 
-        if (!cmd || !cmd.cooldown) return d.client.returnCode(d, data);
+        if (!cmd || !cmd?.cooldown || cmd?.prototype === 'button') return d.client.returnCode(d, data);
         time = time ? d.helpers.time.parse(time).ms : d.helpers.time.parse(cmd.cooldown).ms;
 
         time = checkCooldown(d.client, userId, cmd.name, time);
