@@ -123,7 +123,7 @@ module.exports = {
         }
 
         return {
-            code: d.util.setCode({ function: d.func, code: d.code, inside: data.inside })
+            code: d.util.setCode({ function: d.func, code: data.code, inside: data.inside })
         };
     }
 };
