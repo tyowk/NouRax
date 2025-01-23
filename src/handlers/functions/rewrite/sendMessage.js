@@ -8,11 +8,13 @@ module.exports = {
         let [message, returnID = 'false'] = data.inside.splits;
 
         if (!message.includes('{interaction}') && d.data.interaction) message += '{interaction}';
+        message = await d.util.errorParser(message, d);
+
         if (d.data.interaction && d.data.interaction?.deferred) {
             d.data.interaction.reply = d.data.interaction?.editReply?.bind(d.data.interaction);
+            message.options.defer = false;
         }
 
-        message = await d.util.errorParser(message, d);
         if ((!message?.data && !message) || !message?.options)
             return d.aoiError.fnError(
                 d,

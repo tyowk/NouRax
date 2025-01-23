@@ -10,14 +10,15 @@ module.exports = {
 
         if (!eval(d.helpers.checkCondition.solve(d.helpers.mustEscape(condition)))) {
             error = true;
-            if (err?.trim() === '') {
-            } else {
+            if (err?.trim() !== '') {
                 if (!err.includes('{interaction}') && d.data.interaction) err += '{interaction}';
+                err = await d.util.errorParser(err, d);
+
                 if (d.data.interaction && d.data.interaction?.deferred) {
                     d.data.interaction.reply = d.data.interaction?.editReply?.bind(d.data.interaction);
+                    err.options.defer = false;
                 }
-                const errorMsg = await d.util.errorParser(err, d);
-                d.aoiError.makeMessageError(d.client, d.channel, errorMsg.data || errorMsg, errorMsg.options, d);
+                d.aoiError.makeMessageError(d.client, d.channel, err.data || err, err.options, d);
             }
         }
 

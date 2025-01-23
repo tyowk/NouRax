@@ -2,31 +2,44 @@ module.exports = {
     name: '$componentCollector',
     type: 'djs',
     code: async d => {
-        const code = d.command.code;
-        const inside = d.unpack();
-        const err = d.inside(inside);
-        if (err) return d.error(err);
+        const data = d.util.aoiFunc(d);
+        if (data.err) return d.error(data.err);
 
-        let [messageID, filter, time, idle, customIDs, cmds, errorMsg = '{}', endcommand = '', awaitData = '{}'] =
-            inside.splits;
-        time = d.helpers.time.parse(time)?.ms || time;
-        idle = d.helpers.time.parse(idle)?.ms || idle;
-        if (!time) return d.aoiError.fnError(d, 'custom', { inside }, `Invalid Time provided In`);
+        let [
+            messageID,
+            filter = 'everyone',
+            time,
+            idle,
+            customIDs,
+            cmds,
+            errorMsg = '{}',
+            endcommand = '',
+            awaitData = '{}'
+        ] = data.inside.splits;
+        time = d.helpers.time.parse(time)?.ms || Number(time);
+        idle = d.helpers.time.parse(idle)?.ms || Number(idle);
+        if ((!time && !idle) || isNaN(time) || isNaN(idle))
+            return d.aoiError.fnError(d, 'custom', { inside }, `Invalid Time provided In`);
+
         errorMsg = await d.util.errorParser(errorMsg, d);
-        awaitData = JSON.parse(awaitData);
-        cmds = cmds.split(',');
-        cmds.forEach(x => {
-            if (d.client.cmd.awaited.find(y => y.name === x)) {
-                undefined;
-            } else {
-                d.aoiError.fnError(d, 'custom', { inside }, `Could not find awaitedCommand: ${x}`);
-            }
-        });
-        customIDs = customIDs.split(',');
+        cmds = cmds ? cmds.split(',') : [];
+        filter = filter ? filter.split(',') : [];
+        customIDs = customIDs ? customIDs.split(',') : [];
+
+        try {
+            awaitData = JSON.parse(awaitData);
+        } catch {
+            awaitData = {};
+        }
+
+        for (const cmd of cmds) {
+            if (d.client.cmd.awaited.find(y => y.name === cmd)) continue;
+            d.aoiError.fnError(d, 'custom', { inside: data.inside }, `Could not find awaitedCommand: ${cmd}`);
+        }
 
         const message =
             d.channel.messages.cache.get(messageID) || (await d.channel.messages.fetch(messageID).catch(() => {}));
-        if (!message)
+        if (!message || !(message instanceof require('discord.js').Message))
             return d.aoiError.fnError(d, 'custom', { inside }, `Could not find message with ID: ${messageID}`);
 
         const collector = message.createMessageComponentCollector({
@@ -38,12 +51,16 @@ module.exports = {
         });
 
         collector.on('collect', async interaction => {
-            if (errorMsg && filter !== 'everyone' ? interaction.user.id !== filter : false) {
-                if (d.data.interaction?.deferred) {
-                    d.data.interaction.reply = d.data.interaction?.editReply?.bind(d.data.interaction);
+            if (filter.length > 0 && !filter.includes('everyone') && !filter.includes(interaction.user.id)) {
+                if (interaction.deferred) {
+                    interaction.reply = interaction.editReply.bind(interaction);
+                    errorMsg.options.defer = false;
                 }
 
-                return d.aoiError.makeMessageError(d.client, d.channel, errorMsg.data || errorMsg, errorMsg.options, d);
+                return d.aoiError.makeMessageError(d.client, d.channel, errorMsg.data || errorMsg, errorMsg.options, {
+                    ...d,
+                    data: { ...d.data, interaction }
+                });
             }
 
             const cmd = d.client.cmd.awaited.find(
@@ -106,7 +123,7 @@ module.exports = {
         }
 
         return {
-            code: d.util.setCode({ function: d.func, code, inside })
+            code: d.util.setCode({ function: d.func, code: d.code, inside: data.inside })
         };
     }
 };
