@@ -1,9 +1,10 @@
 module.exports = {
     name: '$getContext',
     type: 'djs',
-    code: d => {
+    code: (d, args = d.args, interaction = d.data.interaction) => {
         const data = d.util.aoiFunc(d);
         if (data.err) return d.error(data.err);
+
         let [option, msg = 'all', index = '1', returnSelf = 'false'] = data.inside.splits;
 
         option = option?.addBrackets()?.toLowerCase();
@@ -14,19 +15,42 @@ module.exports = {
             return matched ? matched[1] : null;
         };
 
-        if (d.data.interaction) {
-            if (option === 'false' || option === 'none') return d.client.returnCode(d, data);
-            data.result = d.data.interaction.options.get(option.addBrackets())?.value;
-        } else if (msg[0] === 'mentioned') {
-            data.result =
-                [...d.mentions.users.values()][Number(index || msg[1] || 1) - 1]?.id ||
-                returnSelf === 'true' ||
-                msg[2] === 'true'
-                    ? d.author?.id
-                    : '';
-        } else {
-            if (msg[0] === 'false' || msg[0] === 'none') return d.client.returnCode(d, data);
-            data.result = msg[0] === 'all' ? d.args.join(' ') : d.args[Number(msg[0]) - 1];
+        switch (true) {
+            case !!interaction:
+                if (option === 'false' || option === 'none') {
+                    return d.client.returnCode(d, data);
+                }
+
+                switch (option) {
+                    case 'subcommand':
+                        data.result = interaction.options.getSubcommand();
+                        break;
+                    default:
+                        data.result = interaction.options.get(option?.addBrackets())?.value;
+                        break;
+                }
+                break;
+
+            case msg[0] === 'mentioned':
+                const userIndex = Number(index || msg[1] || 1) - 1;
+                const mentionedUser = [...d.mentions.users.values()][userIndex];
+
+                if (mentionedUser) {
+                    data.result = mentionedUser.id;
+                } else if (returnSelf === 'true' || msg[2] === 'true') {
+                    data.result = d.author?.id;
+                } else {
+                    data.result = '';
+                }
+                break;
+
+            case msg === 'false' || msg === 'none':
+                return d.client.returnCode(d, data);
+
+            default:
+                msg = msg.join(':');
+                data.result = msg === 'all' ? d.args.join(' ') : args[Number(msg) - 1];
+                break;
         }
 
         if (typeof data.result === 'string') {

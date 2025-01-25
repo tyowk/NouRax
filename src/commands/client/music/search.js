@@ -15,7 +15,7 @@ module.exports = {
     code: `
 $isInteraction
 $componentCollector[$get[ID];$authorId;5m;30s;searching;searching;{newEmbed:{description:$getEmoji[no]  Nuh uh uh... you can't use this button!}{color:Red}}{interaction}{ephemeral};timeoutComponents]
-$let[ID;$sendMessage[{newEmbed:{title:$nonEscape[🔎  Results for "$getContext[song;all]"]}{description:$nonEscape[$search[$getContext[song;all];$searchEngine;{position}. [{title}]({url}) by {artist};10]]}{color:#4367FE}{footer:$nonEscape[Requested by $username]:$nonEscape[$authorAvatar]}}
+$let[ID;$sendMessage[{newEmbed:{title:$nonEscape[$getEmoji[search]  Results for "$getContext[song;all]"]}{description:$nonEscape[$search[$getContext[song;all];$searchEngine;{position}. [{title}]({url}) by {artist};10]]}{color:#4367FE}{footer:$nonEscape[Requested by $username]:$nonEscape[$authorAvatar]}}
 {actionRow:{button:1:1:$nonEscape[searching__$splitText[1]]}{button:2:1:$nonEscape[searching__$splitText[2]]}{button:3:1:$nonEscape[searching__$splitText[3]]}{button:4:1:$nonEscape[searching__$splitText[4]]}{button:5:1:$nonEscape[searching__$splitText[5]]}}
 {actionRow:{button:6:1:$nonEscape[searching__$splitText[6]]}{button:7:1:$nonEscape[searching__$splitText[7]]}{button:8:1:$nonEscape[searching__$splitText[8]]}{button:9:1:$nonEscape[searching__$splitText[9]]}{button:10:1:$nonEscape[searching__$splitText[10]]}};true]]
 $textSplit[$search[$getContext[song;all];$searchEngine;{url};10;#SPACEURLTRACKS#];#SPACEURLTRACKS#]

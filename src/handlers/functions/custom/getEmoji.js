@@ -7,11 +7,10 @@ module.exports = {
 
         let [value] = data.inside.splits;
         value = value?.addBrackets();
-        const config = d.client.config?.emojis;
+        const emojis = d.client.config?.emojis;
 
         try {
-            let evaled = await eval(`config.${value}`);
-            data.result = evaled;
+            data.result = await eval(`emojis.${value}`);
         } catch {}
 
         return {

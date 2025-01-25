@@ -9,7 +9,7 @@ module.exports = {
     online: '<:online:1238662924407410688>',
     offline: '<:offline:1318504606426333315>',
     idle: '<:idle:1318498782731698197>',
-    topgg: '<:topgg:1322153742581104660>',
+    topgg: '<:topgg:1332158365572272280>',
     pause: '<:pause:1328603350970662965>',
     stop: '<:stop:1328603429328912465>',
     skip: '<:skip:1328603638016376865>',
@@ -27,5 +27,9 @@ module.exports = {
     bdot: '<:bdot:1314836761054281808>',
     blank: '<:blank:1328603287586345001>',
     nextpage: '<:nextpage:1328725894134501438>',
-    previouspage: '<:previouspage:1328725919510171778>'
+    previouspage: '<:previouspage:1328725919510171778>',
+    search: '<:search:1332158315068653569>',
+    link: '<:link:1332158453183021129>',
+    discord: '<:discord:1332158396287160370>',
+    github: '<:github:1332158429032353972>'
 };

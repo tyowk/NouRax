@@ -7,7 +7,10 @@ module.exports = {
 
         let dm = await d.util.getUser(d, id);
         if (!dm) return d.aoiError.fnError(d, 'user', { inside: data.inside });
-        d.data.dm = true;
+        d.data.dm = {
+            status: true,
+            user: id
+        };
 
         if (d.data.interaction && d.data.interaction?.isChatInputCommand()) return d.client.returnCode(d, data);
 

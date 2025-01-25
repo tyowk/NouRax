@@ -31,6 +31,8 @@ $getEmoji[bdot] \`Database    ::\`  ➜  **-1ms**]
 $footer[© 2024 NouJS Development]
 $color[#4367FE]
 $image[https://cdn.noujs.my.id/guild/transparent.png]
+$addButton[1;Source;link;https://github.com/tyowk/NouRax;false;$getEmoji[github]]
+$addButton[1;Support;link;https://discord.gg/hyQYXcVnmZ;false;$getEmoji[discord]]
 $checkPerms
 `
 };

@@ -11,7 +11,8 @@ module.exports = {
         } catch {}
 
         return {
-            code: d.util.setCode(data)
+            code: d.util.setCode(data),
+            flags
         };
     }
 };

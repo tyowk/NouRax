@@ -5,6 +5,7 @@ module.exports = {
     cooldown: '3s',
     code: `
 $isInteraction
+$sendMessage[{newEmbed:{description:$getEmoji[yes]  Please check your DM's!}{color:#4367FE}}]
 $dm
 $description[$replaceEmoji[$songInfo[sourceName]]  **Now playing [$songInfo[title]]($songInfo[url])**
 $getEmoji[blank]
