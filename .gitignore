@@ -1,0 +1,7 @@
+node_modules
+.npm
+logs
+.gitconfig
+.env
+.npmrc
+src/config/nodes.js

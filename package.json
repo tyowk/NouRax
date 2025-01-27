@@ -1,0 +1,34 @@
+{
+    "name": "NouRax",
+    "description": "A simple discord music bot built with aoi.js and lavalink ✨",
+    "version": "1.8.0",
+    "main": "src/index.js",
+    "license": "ISC",
+    "files": [
+        "src",
+        "package.json",
+        "LICENSE",
+        "README.md"
+    ],
+    "scripts": {
+        "format": "npx prettier src --write",
+        "start": "node ."
+    },
+    "dependencies": {
+        "aoi.js": "^6.9.0",
+        "aoijs.lavalink": "github:tyowk/aoijs.lavalink",
+        "discord-hybrid-sharding": "^2.2.3",
+        "discord.js": "^14.17.3",
+        "dotenv": "^16.4.7"
+    },
+    "devDependencies": {
+        "prettier": "3.4.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tyowk/NouRax.git"
+    },
+    "bugs": {
+        "url": "https://github.com/tyowk/NouRax/issues"
+    }
+}
